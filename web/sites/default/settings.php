@@ -731,6 +731,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * example.org, with all subdomains included.
  */
 
+$settings['trusted_host_patterns'] = [
+  '^test-drupal-8$',
+];
+
 /**
  * The default list of directories that will be ignored by Drupal's file API.
  *
@@ -805,4 +809,18 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_1UtISc6G7yjV-qY3GdxeXxpKWcI6fDkSmYsG-qPZY3sBWD6ZrCIst8ZeR76RJBLDu2-bqvt6Qw/sync';
+// $settings['config_sync_directory'] = 'sites/default/files/config_1UtISc6G7yjV-qY3GdxeXxpKWcI6fDkSmYsG-qPZY3sBWD6ZrCIst8ZeR76RJBLDu2-bqvt6Qw/sync';
+$settings['config_sync_directory'] = '../config/sync';
+
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+$config['system.logging']['error_level'] = 'verbose';
+ini_set('memory_limit', '9128M');
+ini_set('post_max_size', '100M');
+ini_set('opcache.memory_consumption', '9128');
+ini_set('max_execution_time', '120');
+ini_set('max_input_time', '120');
+
+// $settings['file_private_path'] = 'private';
+ini_set('upload_max_filesize', '100M');
